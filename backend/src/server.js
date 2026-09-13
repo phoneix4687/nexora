@@ -14,6 +14,10 @@ const PORT = process.env.PORT||3000;
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
 
+app.get("/", (req, res) => {
+  res.send("Nexora Backend Running");
+});
+
 //make ready for deployment
 if(process.env.NODE_ENV === "production") {
     app.use(express.static(path.join(__dirname, "../frontend/dist")));
